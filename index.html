@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Base de Datos 2 - Semanas 1 a 16</title>
+  <style>
+    :root {
+      --bg: #0f0f10;
+      --card: #1a1a1d;
+      --accent1: #2563eb;
+      --accent2: #ef4444;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --shadow: 0 10px 25px rgba(0,0,0,0.6);
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    .container{flex:1;max-width:1200px;margin:0 auto;padding:30px}
+    header{text-align:center;margin-bottom:40px}
+    h1{font-size:2.4rem;margin:0;font-weight:900;text-transform:uppercase;color:var(--accent1);letter-spacing:2px}
+    header p{font-size:1rem;margin-top:8px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px}
+    .card{
+      background:var(--card);
+      padding:28px 20px;
+      border-radius:10px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      transition:transform 0.25s, box-shadow 0.25s, border 0.25s;
+      position:relative;
+      border:2px solid transparent;
+    }
+    .card:hover{
+      transform:translateY(-8px) scale(1.02);
+      border:2px solid var(--accent2);
+      box-shadow:0 0 25px var(--accent2);
+    }
+    .week{font-weight:800;font-size:1.4rem;color:var(--accent1);margin:10px 0;text-transform:uppercase}
+    .icon{font-size:2rem;color:var(--accent2)}
+    .github-btn{
+      margin-top:20px;
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:8px;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:1px;
+      box-shadow:0 0 12px rgba(239,68,68,0.7);
+      transition:all 0.3s;
+    }
+    .github-btn:hover{background:linear-gradient(135deg,var(--accent2),var(--accent1));transform:scale(1.05);box-shadow:0 0 20px rgba(37,99,235,0.8)}
+    footer{margin-top:40px;color:var(--muted);font-size:0.95rem;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚡ Base de Datos 2 ⚡</h1>
+      <p>Accede a las carpetas de cada semana en GitHub</p>
+      <p style="font-size:0.9rem">Repositorio: <a href="https://github.com/hrenzo73-spec/lian.github.io" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">hrenzo73-spec/lian.github.io</a></p>
+    </header>
+
+    <div class="grid">
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 1</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-1" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 2</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-2" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 3</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-3" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 4</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-4" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 5</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-5" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 6</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-6" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 7</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-7" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 8</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-8" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 9</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-9" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 10</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-10" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 11</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-11" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 12</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-12" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 13</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-13" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 14</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-14" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 15</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-15" target="_blank">Ver en GitHub</a></div>
+      <div class="card"><div class="icon">💾</div><div class="week">Semana 16</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-16" target="_blank">Ver en GitHub</a></div>
+    </div>
+
+    <footer>
+      ⚔️ Proyecto académico de <b>Base de Datos 2</b> — con un estilo dark & gamer ⚔️
+    </footer>
+  </div>
+</body>
+</html>
