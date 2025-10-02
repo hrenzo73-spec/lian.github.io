@@ -2,99 +2,302 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Base de Datos 2 - Semanas 1 a 16</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Base de Datos II - Semanas 1 a 16</title>
+  <link rel="stylesheet" href="repo.css">
   <style>
     :root {
-      --bg: #0f0f10;
-      --card: #1a1a1d;
+      --bg: #0d1117;
+      --card-bg: #161b22;
       --accent1: #2563eb;
       --accent2: #ef4444;
-      --text: #f3f4f6;
-      --muted: #9ca3af;
-      --shadow: 0 10px 25px rgba(0,0,0,0.6);
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --shadow: 0 8px 20px rgba(0,0,0,0.6);
+      --hover-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
     }
+
     body {
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    .container{flex:1;max-width:1200px;margin:0 auto;padding:30px}
-    header{text-align:center;margin-bottom:40px}
-    h1{font-size:2.4rem;margin:0;font-weight:900;text-transform:uppercase;color:var(--accent1);letter-spacing:2px}
-    header p{font-size:1rem;margin-top:8px;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px}
-    .card{
-      background:var(--card);
-      padding:28px 20px;
-      border-radius:10px;
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-      transition:transform 0.25s, box-shadow 0.25s, border 0.25s;
-      position:relative;
-      border:2px solid transparent;
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
     }
-    .card:hover{
-      transform:translateY(-8px) scale(1.02);
-      border:2px solid var(--accent2);
-      box-shadow:0 0 25px var(--accent2);
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 20px 40px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
     }
-    .week{font-weight:800;font-size:1.4rem;color:var(--accent1);margin:10px 0;text-transform:uppercase}
-    .icon{font-size:2rem;color:var(--accent2)}
-    .github-btn{
-      margin-top:20px;
-      display:inline-block;
-      padding:12px 18px;
-      border-radius:8px;
-      background:linear-gradient(135deg,var(--accent1),var(--accent2));
-      color:white;
-      text-decoration:none;
-      font-weight:700;
-      letter-spacing:1px;
-      box-shadow:0 0 12px rgba(239,68,68,0.7);
-      transition:all 0.3s;
+
+    header .logo {
+      display: flex;
+      align-items: center;
     }
-    .github-btn:hover{background:linear-gradient(135deg,var(--accent2),var(--accent1));transform:scale(1.05);box-shadow:0 0 20px rgba(37,99,235,0.8)}
-    footer{margin-top:40px;color:var(--muted);font-size:0.95rem;text-align:center}
+
+    header .logo img {
+      height: 55px;
+      margin-right: 15px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--accent1);
+      letter-spacing: 2px;
+    }
+
+    header .name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .course-info {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      margin-top: 40px;
+    }
+
+    .course-info h2 {
+      font-size: 1.6rem;
+      color: var(--accent1);
+      margin-bottom: 10px;
+    }
+
+    .weeks-menu {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .weeks-menu ul {
+      list-style-type: none;
+      padding: 0;
+      width: 220px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .weeks-menu li {
+      font-size: 1.05rem;
+      color: var(--accent1);
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .weeks-menu li:hover {
+      background-color: var(--accent1);
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .week-content {
+      flex-grow: 1;
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      display: none;
+    }
+
+    .week-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .week-content h3 {
+      color: var(--accent1);
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .week-content ul li {
+      margin: 8px 0;
+    }
+
+    .week-content a {
+      color: var(--accent1);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .week-content a:hover {
+      color: var(--accent2);
+    }
+
+    .pdf-viewer {
+      margin-top: 20px;
+      border: 2px solid var(--accent1);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--hover-shadow);
+    }
+
+    .pdf-viewer iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 1rem;
+      text-align: center;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .weeks-menu {
+        flex-direction: column;
+      }
+      .weeks-menu ul {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>⚡ Base de Datos 2 ⚡</h1>
-      <p>Accede a las carpetas de cada semana en GitHub</p>
-      <p style="font-size:0.9rem">Repositorio: <a href="https://github.com/hrenzo73-spec/lian.github.io" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">hrenzo73-spec/lian.github.io</a></p>
+      <div class="logo">
+        <img src="uplita.png" alt="upla logo">
+        <h1>Base de Datos II</h1>
+      </div>
+      <div class="name">
+        <p>Ñahuincopa Huamani Lian</p>
+      </div>
     </header>
 
-    <div class="grid">
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 1</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-1" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 2</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-2" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 3</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-3" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 4</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-4" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 5</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-5" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 6</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-6" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 7</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-7" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 8</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-8" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 9</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-9" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 10</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-10" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 11</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-11" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 12</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-12" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 13</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-13" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 14</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-14" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 15</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-15" target="_blank">Ver en GitHub</a></div>
-      <div class="card"><div class="icon">💾</div><div class="week">Semana 16</div><a class="github-btn" href="https://github.com/hrenzo73-spec/lian.github.io/tree/main/Semana-16" target="_blank">Ver en GitHub</a></div>
+    <div class="course-info">
+      <h2>Información sobre el curso</h2>
+      <p>Este es un curso de <b>Base de Datos II</b> que cubre temas avanzados de gestión y manipulación de datos. 
+      Incluye optimización de consultas, diseño de bases de datos y prácticas semanales.</p>
+      <p>Revisa cada semana en el menú para acceder a materiales, tareas y reportes.</p>
+    </div>
+
+    <div class="weeks-menu">
+      <!-- Menú -->
+      <ul>
+        <li onclick="showWeekContent(1)">Semana 1</li>
+        <li onclick="showWeekContent(2)">Semana 2</li>
+        <li onclick="showWeekContent(3)">Semana 3</li>
+        <li onclick="showWeekContent(4)">Semana 4</li>
+        <li onclick="showWeekContent(5)">Semana 5</li>
+        <li onclick="showWeekContent(6)">Semana 6</li>
+        <li onclick="showWeekContent(7)">Semana 7</li>
+        <li onclick="showWeekContent(8)">Semana 8</li>
+        <li onclick="showWeekContent(9)">Semana 9</li>
+        <li onclick="showWeekContent(10)">Semana 10</li>
+        <li onclick="showWeekContent(11)">Semana 11</li>
+        <li onclick="showWeekContent(12)">Semana 12</li>
+        <li onclick="showWeekContent(13)">Semana 13</li>
+        <li onclick="showWeekContent(14)">Semana 14</li>
+        <li onclick="showWeekContent(15)">Semana 15</li>
+        <li onclick="showWeekContent(16)">Semana 16</li>
+      </ul>
+
+      <!-- Contenido -->
+      <div class="week-content" id="week-1">
+        <h3>Semana 1 - Introducción a las bases de datos</h3>
+        <ul>
+          <li><a href="Semana-1">Materiales</a></li>
+          <li><a href="Semana-1/Tareas">Tareas</a></li>
+          <li><a href="INFORME TECNICO-L.pdf" target="_blank">Descargar Informe Técnico</a></li>
+        </ul>
+
+        <!-- PDF embebido -->
+        <div class="pdf-viewer">
+          <iframe src="INFORME TECNICO-L.pdf"></iframe>
+        </div>
+      </div>
+
+      <div class="week-content" id="week-2">
+        <h3>Semana 2 - Modelo relacional</h3>
+        <ul>
+          <li><a href="Semana-2">Materiales</a></li>
+          <li><a href="Semana-2/Tareas">Tareas</a></li>
+        </ul>
+      </div>
+
+      <!-- Repite para las semanas siguientes -->
     </div>
 
     <footer>
-      ⚔️ Proyecto académico de <b>Base de Datos 2</b> — con un estilo dark & gamer ⚔️
+      ⚔️ Proyecto académico de <b>Base de Datos II</b>  ⚔️
     </footer>
   </div>
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualización de Archivos</title>
+</head>
+<body>
+  <h1>Semana 1</h1>
+
+  <!-- Visualizar Informe Técnico -->
+  <h2>Informe Técnico</h2>
+  <iframe src="https://hrezno73-spec.github.io/Semana-1/INFORME%20TECNICO-LIAN.pdf"
+          width="100%" height="600px" style="border:none;">
+  </iframe>
+
+  <!-- Visualizar Presentación -->
+  <h2>Presentación</h2>
+  <iframe src="https://hrezno73-spec.github.io/Semana-1/Blue%20and%20White%20Modern%20Securing%20Digital%20Infrastructure%20Presen..."
+          width="100%" height="600px" style="border:none;">
+  </iframe>
 </body>
 </html>
+
+
+  <script>
+    function showWeekContent(week) {
+      document.querySelectorAll('.week-content').forEach(el => el.classList.remove('active'));
+      const activeWeek = document.getElementById('week-' + week);
+      if (activeWeek) activeWeek.classList.add('active');
+    }
+  </script>
+</body>
+</html>
+
+
